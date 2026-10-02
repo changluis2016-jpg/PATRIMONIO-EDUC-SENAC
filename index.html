@@ -17,47 +17,45 @@
         </div>
     </header>
 
-    <!-- Conteúdo Principal Ocupando a Largura da Tela -->
+    <!-- Conteúdo Principal -->
     <main class="w-full px-6 py-6">
         
-        <!-- Cards de Resumo Expandidos -->
+        <!-- Cards de Resumo -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <p class="text-xs text-gray-500 uppercase font-semibold">Total de Vistorias</p>
-                <h3 class="text-2xl font-bold text-blue-900 mt-1">1</h3>
+                <h3 class="text-2xl font-bold text-blue-900 mt-1">2</h3>
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <p class="text-xs text-gray-500 uppercase font-semibold">Escolas Atendidas</p>
-                <h3 class="text-lg font-bold text-green-600 mt-1 truncate">EE. Dante Martins</h3>
+                <h3 class="text-lg font-bold text-green-600 mt-1 truncate">Dante Martins / Kullmann</h3>
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                <p class="text-xs text-gray-500 uppercase font-semibold">Mobília (Mesas / Cadeiras)</p>
-                <h3 class="text-xl font-bold text-indigo-600 mt-1">22 / 21</h3>
+                <p class="text-xs text-gray-500 uppercase font-semibold">Total Geral Mobília</p>
+                <h3 class="text-xl font-bold text-indigo-600 mt-1">Mesas / Cadeiras</h3>
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <p class="text-xs text-gray-500 uppercase font-semibold">Tech & Multimédia</p>
                 <div class="flex gap-4 mt-1 text-xs font-bold text-amber-600">
-                    <span title="Notebooks">💻 10</span>
-                    <span title="TV">📺 1</span>
-                    <span title="Óculos">🥽 5</span>
-                    <span title="Projetor">📽️ 1</span>
+                    <span title="Notebooks">💻 Ativo</span>
+                    <span title="TV">📺 Ativo</span>
+                    <span title="Óculos">🥽 Ativo</span>
+                    <span title="Projetor">📽️ Ativo</span>
                 </div>
             </div>
         </div>
 
-        <!-- Tabela Expandida de Ponta a Ponta com Filtros -->
+        <!-- Tabela Detalhada com Links Reais das Fotos -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden w-full">
             <div class="p-4 border-b border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <h2 class="font-bold text-gray-700">Histórico Detalhado de Vistorias e Evidências</h2>
                 
-                <!-- Área de Filtros (Busca + Data) -->
+                <!-- Filtros -->
                 <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-                    <!-- Filtro por Data -->
                     <div class="flex items-center gap-1 bg-gray-50 border border-gray-300 rounded-lg px-3 py-1 text-sm">
                         <i class="fa-regular fa-calendar text-gray-400"></i>
                         <input type="date" id="filterDate" onchange="filtrarTabela()" class="bg-transparent outline-none text-xs text-gray-700 cursor-pointer">
                     </div>
-                    <!-- Filtro por Escola / Texto -->
                     <div class="flex items-center gap-1 bg-gray-50 border border-gray-300 rounded-lg px-3 py-1 text-sm">
                         <i class="fa-solid fa-search text-gray-400"></i>
                         <input type="text" id="filterText" onkeyup="filtrarTabela()" placeholder="Filtrar escola ou inspetor..." class="bg-transparent outline-none text-xs text-gray-700 w-full sm:w-64">
@@ -87,45 +85,77 @@
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
+                        <!-- Vistoria 1: EE Dante Martins -->
                         <tr class="hover:bg-gray-50">
                             <td class="p-3">02/10/2026 14:25</td>
                             <td class="p-3">luis.mendoza@mt.senac.br</td>
                             <td class="p-3 font-medium">EE. GOV. DANTE MARTINS DE OLIVEIRA - VG</td>
                             
-                            <!-- Mesas -->
                             <td class="p-3 text-center">22</td>
                             <td class="p-3 text-center">
-                                <a href="#" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
                             </td>
                             
-                            <!-- Cadeiras -->
                             <td class="p-3 text-center">21</td>
                             <td class="p-3 text-center">
-                                <a href="#" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
                             </td>
                             
-                            <!-- Notebooks -->
-                            <td class="p-3 text-center">10</td>
+                            <td class="p-3 text-center">15</td>
                             <td class="p-3 text-center">
-                                <a href="#" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
                             </td>
                             
-                            <!-- TV -->
                             <td class="p-3 text-center">1</td>
                             <td class="p-3 text-center">
-                                <a href="#" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
                             </td>
                             
-                            <!-- Óculos -->
                             <td class="p-3 text-center">5</td>
                             <td class="p-3 text-center">
-                                <a href="#" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
                             </td>
                             
-                            <!-- Projetor -->
                             <td class="p-3 text-center">1</td>
                             <td class="p-3 text-center">
-                                <a href="#" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                            </td>
+                        </tr>
+
+                        <!-- Vistoria 2: EE Gustavo Kullmann -->
+                        <tr class="hover:bg-gray-50">
+                            <td class="p-3">02/10/2026 15:10</td>
+                            <td class="p-3">luis.mendoza@mt.senac.br</td>
+                            <td class="p-3 font-medium">EE. GUSTAVO KULLMANN - CUIABA</td>
+                            
+                            <td class="p-3 text-center">25</td>
+                            <td class="p-3 text-center">
+                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                            </td>
+                            
+                            <td class="p-3 text-center">30</td>
+                            <td class="p-3 text-center">
+                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                            </td>
+                            
+                            <td class="p-3 text-center">20</td>
+                            <td class="p-3 text-center">
+                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                            </td>
+                            
+                            <td class="p-3 text-center">1</td>
+                            <td class="p-3 text-center">
+                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                            </td>
+                            
+                            <td class="p-3 text-center">4</td>
+                            <td class="p-3 text-center">
+                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                            </td>
+                            
+                            <td class="p-3 text-center">1</td>
+                            <td class="p-3 text-center">
+                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
                             </td>
                         </tr>
                     </tbody>
@@ -135,10 +165,10 @@
 
     </main>
 
-    <!-- Script de Filtro Dinâmico -->
+    <!-- Script de Filtro -->
     <script>
         function filtrarTabela() {
-            const inputDate = document.getElementById('filterDate').value; // Formato yyyy-mm-dd
+            const inputDate = document.getElementById('filterDate').value;
             const inputTxt = document.getElementById('filterText').value.toLowerCase();
             const table = document.getElementById('tabelaVistorias');
             const tr = table.getElementsByTagName('tr');
@@ -149,11 +179,10 @@
                 const tdEscola = tr[i].getElementsByTagName('td')[2];
 
                 if (tdDataHora && tdEscola && tdInspetor) {
-                    const textoDataHora = tdDataHora.textContent || tdDataHora.innerText; // ex: 02/10/2026 14:25
+                    const textoDataHora = tdDataHora.textContent || tdDataHora.innerText;
                     const textoInspetor = tdInspetor.textContent || tdInspetor.innerText;
                     const textoEscola = tdEscola.textContent || tdEscola.innerText;
 
-                    // Converter data do formato brasileiro (DD/MM/AAAA) para AAAA-MM-DD para comparar com o input date
                     let matchDate = true;
                     if (inputDate) {
                         const partes = textoDataHora.split(' ')[0].split('/');
@@ -161,7 +190,6 @@
                         matchDate = (dataFormatadaTabela === inputDate);
                     }
 
-                    // Verificar filtro de texto (escola ou inspetor)
                     const textoCombinado = (textoEscola + " " + textoInspetor).toLowerCase();
                     const matchText = textoCombinado.includes(inputTxt);
 
