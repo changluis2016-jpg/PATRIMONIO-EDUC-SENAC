@@ -20,7 +20,7 @@
     <!-- Conteúdo Principal -->
     <main class="max-w-7xl mx-auto p-6">
         
-        <!-- Cards de Resumo -->
+        <!-- Cards de Resumo Otimizados -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <p class="text-xs text-gray-500 uppercase font-semibold">Total de Vistorias</p>
@@ -28,22 +28,27 @@
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <p class="text-xs text-gray-500 uppercase font-semibold">Escolas Atendidas</p>
-                <h3 class="text-2xl font-bold text-green-600 mt-1">EE. Dante Martins</h3>
+                <h3 class="text-lg font-bold text-green-600 mt-1 truncate">EE. Dante Martins</h3>
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                <p class="text-xs text-gray-500 uppercase font-semibold">Total Mesas / Cadeiras</p>
-                <h3 class="text-2xl font-bold text-indigo-600 mt-1">22 / 21</h3>
+                <p class="text-xs text-gray-500 uppercase font-semibold">Mobília (Mesas / Cadeiras)</p>
+                <h3 class="text-xl font-bold text-indigo-600 mt-1">22 / 21</h3>
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                <p class="text-xs text-gray-500 uppercase font-semibold">Tech & Multimídia</p>
-                <h3 class="text-2xl font-bold text-amber-600 mt-1">Notebooks / TV / Óculos / Proj.</h3>
+                <p class="text-xs text-gray-500 uppercase font-semibold">Tech & Multimédia</p>
+                <div class="flex gap-2 mt-1 text-xs font-bold text-amber-600">
+                    <span title="Notebooks">💻 10</span>
+                    <span title="TV">📺 1</span>
+                    <span title="Óculos">🥽 5</span>
+                    <span title="Projetor"> projector 1</span>
+                </div>
             </div>
         </div>
 
-        <!-- Tabela de Registros Completa -->
+        <!-- Tabela Completa com Fotos por Categoria -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
             <div class="p-4 border-b border-gray-100 flex justify-between items-center">
-                <h2 class="font-bold text-gray-700">Histórico Recente de Vistorias (Equipamentos Completos)</h2>
+                <h2 class="font-bold text-gray-700">Histórico Detalhado de Vistorias e Evidências</h2>
                 <input type="text" placeholder="Filtrar escola..." class="border border-gray-300 rounded-lg px-3 py-1 text-sm outline-none focus:border-blue-500">
             </div>
             <div class="overflow-x-auto">
@@ -54,11 +59,17 @@
                             <th class="p-3">Inspetor</th>
                             <th class="p-3">Escola / Sala</th>
                             <th class="p-3 text-center">Mesas</th>
+                            <th class="p-3 text-center">Foto Mesas</th>
                             <th class="p-3 text-center">Cadeiras</th>
+                            <th class="p-3 text-center">Foto Cadeiras</th>
                             <th class="p-3 text-center">Notebooks</th>
+                            <th class="p-3 text-center">Foto Not.</th>
                             <th class="p-3 text-center">TV</th>
+                            <th class="p-3 text-center">Foto TV</th>
                             <th class="p-3 text-center">Óculos</th>
+                            <th class="p-3 text-center">Foto Óculos</th>
                             <th class="p-3 text-center">Projetor</th>
+                            <th class="p-3 text-center">Foto Proj.</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
@@ -66,12 +77,42 @@
                             <td class="p-3">02/10/2026 14:25</td>
                             <td class="p-3">luis.mendoza@mt.senac.br</td>
                             <td class="p-3 font-medium">EE. GOV. DANTE MARTINS DE OLIVEIRA - VG</td>
+                            
+                            <!-- Mesas -->
                             <td class="p-3 text-center">22</td>
+                            <td class="p-3 text-center">
+                                <a href="#" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                            </td>
+                            
+                            <!-- Cadeiras -->
                             <td class="p-3 text-center">21</td>
-                            <td class="p-3 text-center font-semibold text-blue-600">10</td>
-                            <td class="p-3 text-center font-semibold text-blue-600">1</td>
-                            <td class="p-3 text-center font-semibold text-blue-600">5</td>
-                            <td class="p-3 text-center font-semibold text-blue-600">1</td>
+                            <td class="p-3 text-center">
+                                <a href="#" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                            </td>
+                            
+                            <!-- Notebooks -->
+                            <td class="p-3 text-center">10</td>
+                            <td class="p-3 text-center">
+                                <a href="#" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                            </td>
+                            
+                            <!-- TV -->
+                            <td class="p-3 text-center">1</td>
+                            <td class="p-3 text-center">
+                                <a href="#" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                            </td>
+                            
+                            <!-- Óculos -->
+                            <td class="p-3 text-center">5</td>
+                            <td class="p-3 text-center">
+                                <a href="#" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                            </td>
+                            
+                            <!-- Projetor -->
+                            <td class="p-3 text-center">1</td>
+                            <td class="p-3 text-center">
+                                <a href="#" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -79,6 +120,9 @@
         </div>
 
     </main>
+
+</body>
+</html>
 
 </body>
 </html>
