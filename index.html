@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Vistorias - Checklist Educacional</title>
-    <!-- Tailwind CSS para um design limpo e moderno -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -32,32 +31,34 @@
                 <h3 class="text-2xl font-bold text-green-600 mt-1">EE. Dante Martins</h3>
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                <p class="text-xs text-gray-500 uppercase font-semibold">Total de Mesas</p>
-                <h3 class="text-2xl font-bold text-indigo-600 mt-1">22</h3>
+                <p class="text-xs text-gray-500 uppercase font-semibold">Total Mesas / Cadeiras</p>
+                <h3 class="text-2xl font-bold text-indigo-600 mt-1">22 / 21</h3>
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                <p class="text-xs text-gray-500 uppercase font-semibold">Total de Cadeiras</p>
-                <h3 class="text-2xl font-bold text-amber-600 mt-1">21</h3>
+                <p class="text-xs text-gray-500 uppercase font-semibold">Tech & Multimídia</p>
+                <h3 class="text-2xl font-bold text-amber-600 mt-1">Notebooks / TV / Óculos / Proj.</h3>
             </div>
         </div>
 
-        <!-- Tabela de Registros -->
+        <!-- Tabela de Registros Completa -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
             <div class="p-4 border-b border-gray-100 flex justify-between items-center">
-                <h2 class="font-bold text-gray-700">Histórico Recente de Vistorias</h2>
+                <h2 class="font-bold text-gray-700">Histórico Recente de Vistorias (Equipamentos Completos)</h2>
                 <input type="text" placeholder="Filtrar escola..." class="border border-gray-300 rounded-lg px-3 py-1 text-sm outline-none focus:border-blue-500">
             </div>
             <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse text-sm">
+                <table class="w-full text-left border-collapse text-xs">
                     <thead>
-                        <tr class="bg-gray-100 text-gray-600 uppercase text-xs">
+                        <tr class="bg-gray-100 text-gray-600 uppercase">
                             <th class="p-3">Data/Hora</th>
                             <th class="p-3">Inspetor</th>
                             <th class="p-3">Escola / Sala</th>
                             <th class="p-3 text-center">Mesas</th>
-                            <th class="p-3 text-center">Foto Mesas</th>
                             <th class="p-3 text-center">Cadeiras</th>
-                            <th class="p-3 text-center">Foto Cadeiras</th>
+                            <th class="p-3 text-center">Notebooks</th>
+                            <th class="p-3 text-center">TV</th>
+                            <th class="p-3 text-center">Óculos</th>
+                            <th class="p-3 text-center">Projetor</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
@@ -66,17 +67,11 @@
                             <td class="p-3">luis.mendoza@mt.senac.br</td>
                             <td class="p-3 font-medium">EE. GOV. DANTE MARTINS DE OLIVEIRA - VG</td>
                             <td class="p-3 text-center">22</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac.sharepoint.com/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-100 transition">
-                                    <i class="fa-solid fa-image mr-1"></i> Ver Foto
-                                </a>
-                            </td>
                             <td class="p-3 text-center">21</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac.sharepoint.com/..." target="_blank" class="inline-block bg-blue-50 text-blue-600 px-3 py-1 rounded-md text-xs font-semibold hover:bg-blue-100 transition">
-                                    <i class="fa-solid fa-image mr-1"></i> Ver Foto
-                                </a>
-                            </td>
+                            <td class="p-3 text-center font-semibold text-blue-600">10</td>
+                            <td class="p-3 text-center font-semibold text-blue-600">1</td>
+                            <td class="p-3 text-center font-semibold text-blue-600">5</td>
+                            <td class="p-3 text-center font-semibold text-blue-600">1</td>
                         </tr>
                     </tbody>
                 </table>
