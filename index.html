@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel de Vistorias - Checklist Educacional</title>
+    <title>Painel de Vistorias - SENAC MT</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-    <!-- Cabeçalho Fluido -->
+    <!-- Cabeçalho -->
     <header class="bg-blue-900 text-white shadow-md py-4 px-6 w-full">
         <div class="w-full px-4 flex justify-between items-center">
             <h1 class="text-xl font-bold"><i class="fa-solid fa-clipboard-check mr-2"></i> Painel de Equipamentos - SENAC MT</h1>
             <div class="flex items-center gap-3">
-                <button onclick="carregarDados()" class="text-xs bg-blue-700 hover:bg-blue-600 text-white px-3 py-1 rounded-full flex items-center gap-1 transition">
+                <button onclick="carregarDados()" class="text-xs bg-blue-700 hover:bg-blue-600 text-white px-3 py-1 rounded-full flex items-center gap-1 transition cursor-pointer">
                     <i class="fa-solid fa-rotate"></i> Atualizar
                 </button>
                 <span class="text-sm bg-blue-800 px-3 py-1 rounded-full">Ambiente Online</span>
@@ -22,10 +22,10 @@
         </div>
     </header>
 
-    <!-- Conteúdo Principal Ocupando a Largura da Tela -->
+    <!-- Conteúdo Principal -->
     <main class="w-full px-6 py-6">
         
-        <!-- Cards de Resumo Dinâmicos -->
+        <!-- Cards de Resumo -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <p class="text-xs text-gray-500 uppercase font-semibold">Total de Vistorias</p>
@@ -33,7 +33,7 @@
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <p class="text-xs text-gray-500 uppercase font-semibold">Escolas Atendidas</p>
-                <h3 id="cardEscolas" class="text-lg font-bold text-green-600 mt-1 truncate">0 escolas</h3>
+                <h3 id="cardEscolas" class="text-lg font-bold text-green-600 mt-1 truncate">A carregar...</h3>
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <p class="text-xs text-gray-500 uppercase font-semibold">Mobília Total</p>
@@ -75,37 +75,4 @@
                             <th class="p-3 text-center">Cadeiras</th>
                             <th class="p-3 text-center">Foto Cadeiras</th>
                             <th class="p-3 text-center">Notebooks</th>
-                            <th class="p-3 text-center">Foto Not.</th>
-                            <th class="p-3 text-center">TV</th>
-                            <th class="p-3 text-center">Foto TV</th>
-                            <th class="p-3 text-center">Óculos</th>
-                            <th class="p-3 text-center">Foto Óculos</th>
-                            <th class="p-3 text-center">Projetor</th>
-                            <th class="p-3 text-center">Foto Proj.</th>
-                        </tr>
-                    </thead>
-                    <tbody id="corpoTabela" class="divide-y divide-gray-100">
-                        <tr>
-                            <td colspan="15" class="p-6 text-center text-gray-400">
-                                <i class="fa-solid fa-spinner fa-spin mr-2"></i> A carregar vistorias...
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Script de Carregamento Dinâmico e Filtros -->
-    <script>
-        async function carregarDados() {
-            const corpoTabela = document.getElementById('corpoTabela');
-            try {
-                // Busca o arquivo dados.json sem cache do navegador
-                const resposta = await fetch('dados.json?t=' + new Date().getTime());
-                const dados = await resposta.json();
-
-                corpoTabela.innerHTML = '';
-
-                if (!dados || dados.length ===
+                            <th
