@@ -75,4 +75,175 @@
                             <th class="p-3 text-center">Cadeiras</th>
                             <th class="p-3 text-center">Foto Cadeiras</th>
                             <th class="p-3 text-center">Notebooks</th>
-                            <th
+                            <th class="p-3 text-center">Foto Not.</th>
+                            <th class="p-3 text-center">TV</th>
+                            <th class="p-3 text-center">Foto TV</th>
+                            <th class="p-3 text-center">Óculos</th>
+                            <th class="p-3 text-center">Foto Óculos</th>
+                            <th class="p-3 text-center">Projetor</th>
+                            <th class="p-3 text-center">Foto Proj.</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabela" class="divide-y divide-gray-100">
+                        <tr>
+                            <td colspan="15" class="p-6 text-center text-gray-400">
+                                <i class="fa-solid fa-spinner fa-spin mr-2"></i> A carregar vistorias...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        async function carregarDados() {
+            const corpoTabela = document.getElementById('corpoTabela');
+            try {
+                const resposta = await fetch('dados.json?t=' + new Date().getTime());
+                const dados = await resposta.json();
+
+                corpoTabela.innerHTML = '';
+
+                if (!dados || dados.length === 0) {
+                    corpoTabela.innerHTML = `
+                        <tr>
+                            <td colspan="15" class="p-6 text-center text-gray-400">
+                                Nenhuma vistoria registada até ao momento.
+                            </td>
+                        </tr>
+                    `;
+                    atualizarCards([]);
+                    return;
+                }
+
+                dados.forEach(item => {
+                    const dataHora = item.Data || item.data || '-';
+                    const inspetor = item.Inspector || item.Inspetor || item.inspetor || '-';
+                    const escola = item.Escola || item.escola || '-';
+
+                    const tr = document.createElement('tr');
+                    tr.className = 'hover:bg-gray-50';
+
+                    tr.innerHTML = `
+                        <td class="p-3">${dataHora}</td>
+                        <td class="p-3">${inspetor}</td>
+                        <td class="p-3 font-medium">${escola}</td>
+                        
+                        <td class="p-3 text-center font-semibold">${item["QTD MESAS"] || 0}</td>
+                        <td class="p-3 text-center">${gerarBotaoFoto(item["FOTO MESAS"] || item["Foto Mesas"])}</td>
+                        
+                        <td class="p-3 text-center font-semibold">${item["QTD CADEIRAS"] || 0}</td>
+                        <td class="p-3 text-center">${gerarBotaoFoto(item["FOTO CADEIRAS"] || item["Foto Cadeiras"])}</td>
+                        
+                        <td class="p-3 text-center font-semibold">${item["QTD NOTEBOOK"] || 0}</td>
+                        <td class="p-3 text-center">${gerarBotaoFoto(item["FOTO NOTEBOOK"] || item["Foto Notebook"])}</td>
+                        
+                        <td class="p-3 text-center font-semibold">${item["QTD TV INTERATIVA"] || 0}</td>
+                        <td class="p-3 text-center">${gerarBotaoFoto(item["FOTO TV INTERATIVA"] || item["Foto TV"])}</td>
+                        
+                        <td class="p-3 text-center font-semibold">${item["QTD OCULOS META"] || 0}</td>
+                        <td class="p-3 text-center">${gerarBotaoFoto(item["FOTO OCULOS META"] || item["Foto Oculos"])}</td>
+                        
+                        <td class="p-3 text-center font-semibold">${item["QTD PROJETOR"] || 0}</td>
+                        <td class="p-3 text-center">${gerarBotaoFoto(item["FOTO PROJETOR"] || item["Foto Projetor"])}</td>
+                    `;
+                    corpoTabela.appendChild(tr);
+                });
+
+                atualizarCards(dados);
+                filtrarTabela();
+
+            } catch (erro) {
+                console.error('Erro ao carregar dados.json:', erro);
+                corpoTabela.innerHTML = `
+                    <tr>
+                        <td colspan="15" class="p-6 text-center text-red-500 font-semibold">
+                            Erro ao carregar os dados do ficheiro dados.json.
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        function gerarBotaoFoto(url) {
+            if (url && url.toString().trim().startsWith('http')) {
+                return `<a href="${url}" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100 transition"><i class="fa-solid fa-image"></i> Ver</a>`;
+            }
+            return `<span class="text-gray-300 text-xs">-</span>`;
+        }
+
+        function atualizarCards(dados) {
+            let totalMesas = 0;
+            let totalCadeiras = 0;
+            let totalTech = 0;
+            let escolasUnicas = new Set();
+
+            dados.forEach(item => {
+                const escola = item.Escola || item.escola;
+                if (escola && escola.trim() !== '') escolasUnicas.add(escola.trim());
+
+                totalMesas += parseInt(item["QTD MESAS"] || 0);
+                totalCadeiras += parseInt(item["QTD CADEIRAS"] || 0);
+                totalTech += parseInt(item["QTD NOTEBOOK"] || 0) + 
+                             parseInt(item["QTD TV INTERATIVA"] || 0) + 
+                             parseInt(item["QTD OCULOS META"] || 0) + 
+                             parseInt(item["QTD PROJETOR"] || 0);
+            });
+
+            document.getElementById('cardTotalVistorias').innerText = dados.length;
+            
+            const listaEscolas = Array.from(escolasUnicas);
+            if (listaEscolas.length > 0) {
+                document.getElementById('cardEscolas').innerText = listaEscolas.join(' / ');
+                document.getElementById('cardEscolas').title = listaEscolas.join(' / ');
+            } else {
+                document.getElementById('cardEscolas').innerText = '0 escolas';
+            }
+
+            document.getElementById('cardMobilia').innerText = `${totalMesas} Mesas / ${totalCadeiras} Cadeiras`;
+            document.getElementById('cardTech').innerText = `${totalTech} Equipamentos`;
+        }
+
+        function filtrarTabela() {
+            const inputDate = document.getElementById('filterDate').value;
+            const inputTxt = document.getElementById('filterText').value.toLowerCase();
+            const table = document.getElementById('tabelaVistorias');
+            const tr = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < tr.length; i++) {
+                const tdDataHora = tr[i].getElementsByTagName('td')[0];
+                const tdInspetor = tr[i].getElementsByTagName('td')[1];
+                const tdEscola = tr[i].getElementsByTagName('td')[2];
+
+                if (tdDataHora && tdEscola && tdInspetor) {
+                    const textoDataHora = tdDataHora.textContent || tdDataHora.innerText;
+                    const textoInspetor = tdInspetor.textContent || tdInspetor.innerText;
+                    const textoEscola = tdEscola.textContent || tdEscola.innerText;
+
+                    let matchDate = true;
+                    if (inputDate) {
+                        const partes = textoDataHora.split(' ')[0].split('/');
+                        if (partes.length === 3) {
+                            const dataFormatadaTabela = `${partes[2]}-${partes[1].padStart(2, '0')}-${partes[0].padStart(2, '0')}`;
+                            matchDate = (dataFormatadaTabela === inputDate);
+                        }
+                    }
+
+                    const textoCombinado = (textoEscola + " " + textoInspetor).toLowerCase();
+                    const matchText = textoCombinado.includes(inputTxt);
+
+                    if (matchDate && matchText) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        window.onload = carregarDados;
+    </script>
+</body>
+</html>
