@@ -13,35 +13,35 @@
     <header class="bg-blue-900 text-white shadow-md py-4 px-6 w-full">
         <div class="w-full px-4 flex justify-between items-center">
             <h1 class="text-xl font-bold"><i class="fa-solid fa-clipboard-check mr-2"></i> Painel de Equipamentos - SENAC MT</h1>
-            <span class="text-sm bg-blue-800 px-3 py-1 rounded-full">Ambiente Online</span>
+            <div class="flex items-center gap-3">
+                <button onclick="carregarDados()" class="text-xs bg-blue-700 hover:bg-blue-600 text-white px-3 py-1 rounded-full flex items-center gap-1 transition">
+                    <i class="fa-solid fa-rotate"></i> Atualizar
+                </button>
+                <span class="text-sm bg-blue-800 px-3 py-1 rounded-full">Ambiente Online</span>
+            </div>
         </div>
     </header>
 
     <!-- Conteúdo Principal Ocupando a Largura da Tela -->
     <main class="w-full px-6 py-6">
         
-        <!-- Cards de Resumo -->
+        <!-- Cards de Resumo Dinâmicos -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <p class="text-xs text-gray-500 uppercase font-semibold">Total de Vistorias</p>
-                <h3 class="text-2xl font-bold text-blue-900 mt-1">2</h3>
+                <h3 id="cardTotalVistorias" class="text-2xl font-bold text-blue-900 mt-1">0</h3>
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <p class="text-xs text-gray-500 uppercase font-semibold">Escolas Atendidas</p>
-                <h3 class="text-lg font-bold text-green-600 mt-1 truncate">Dante Martins / Gustavo Kullmann</h3>
+                <h3 id="cardEscolas" class="text-lg font-bold text-green-600 mt-1 truncate">0 escolas</h3>
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
                 <p class="text-xs text-gray-500 uppercase font-semibold">Mobília Total</p>
-                <h3 class="text-xl font-bold text-indigo-600 mt-1">Mesas / Cadeiras</h3>
+                <h3 id="cardMobilia" class="text-xl font-bold text-indigo-600 mt-1">0 Mesas / 0 Cadeiras</h3>
             </div>
             <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100">
-                <p class="text-xs text-gray-500 uppercase font-semibold">Tech & Multimédia</p>
-                <div class="flex gap-4 mt-1 text-xs font-bold text-amber-600">
-                    <span title="Notebooks">💻 Ativo</span>
-                    <span title="TV">📺 Ativo</span>
-                    <span title="Óculos">🥽 Ativo</span>
-                    <span title="Projetor">📽️️ Ativo</span>
-                </div>
+                <p class="text-xs text-gray-500 uppercase font-semibold">Tech Total</p>
+                <h3 id="cardTech" class="text-xl font-bold text-amber-600 mt-1">0 Equipamentos</h3>
             </div>
         </div>
 
@@ -84,78 +84,10 @@
                             <th class="p-3 text-center">Foto Proj.</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-gray-100">
-                        <!-- Vistoria 1: EE Dante Martins -->
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3">02/10/2026 14:25</td>
-                            <td class="p-3">luis.mendoza@mt.senac.br</td>
-                            <td class="p-3 font-medium">EE. GOV. DANTE MARTINS DE OLIVEIRA - VG</td>
-                            
-                            <td class="p-3 text-center">22</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/Eb91Xp2i17dIuLq1aZ0_vQ0BYx7y2GqG3s7H8Xv9Z8w1wA" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
-                            </td>
-                            
-                            <td class="p-3 text-center">21</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/Eb91Xp2i17dIuLq1aZ0_vQ0BYx7y2GqG3s7H8Xv9Z8w1wA" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
-                            </td>
-                            
-                            <td class="p-3 text-center">15</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/Eb91Xp2i17dIuLq1aZ0_vQ0BYx7y2GqG3s7H8Xv9Z8w1wA" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
-                            </td>
-                            
-                            <td class="p-3 text-center">1</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/Eb91Xp2i17dIuLq1aZ0_vQ0BYx7y2GqG3s7H8Xv9Z8w1wA" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
-                            </td>
-                            
-                            <td class="p-3 text-center">5</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/Eb91Xp2i17dIuLq1aZ0_vQ0BYx7y2GqG3s7H8Xv9Z8w1wA" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
-                            </td>
-                            
-                            <td class="p-3 text-center">1</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/Eb91Xp2i17dIuLq1aZ0_vQ0BYx7y2GqG3s7H8Xv9Z8w1wA" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
-                            </td>
-                        </tr>
-
-                        <!-- Vistoria 2: EE Gustavo Kullmann -->
-                        <tr class="hover:bg-gray-50">
-                            <td class="p-3">02/10/2026 15:10</td>
-                            <td class="p-3">luis.mendoza@mt.senac.br</td>
-                            <td class="p-3 font-medium">EE. GUSTAVO KULLMANN - CUIABA</td>
-                            
-                            <td class="p-3 text-center">22</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/Ej18Yq3z28eJvMr2bA1_wR1CZy8z3HrH4t8I9Yw0A9x2xB" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
-                            </td>
-                            
-                            <td class="p-3 text-center">30</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/Ej18Yq3z28eJvMr2bA1_wR1CZy8z3HrH4t8I9Yw0A9x2xB" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
-                            </td>
-                            
-                            <td class="p-3 text-center">20</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/Ej18Yq3z28eJvMr2bA1_wR1CZy8z3HrH4t8I9Yw0A9x2xB" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
-                            </td>
-                            
-                            <td class="p-3 text-center">1</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/Ej18Yq3z28eJvMr2bA1_wR1CZy8z3HrH4t8I9Yw0A9x2xB" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
-                            </td>
-                            
-                            <td class="p-3 text-center">4</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/Ej18Yq3z28eJvMr2bA1_wR1CZy8z3HrH4t8I9Yw0A9x2xB" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
-                            </td>
-                            
-                            <td class="p-3 text-center">1</td>
-                            <td class="p-3 text-center">
-                                <a href="https://mtsenac-my.sharepoint.com/:i:/g/personal/luis_mendoza_mt_senac_br/Ej18Yq3z28eJvMr2bA1_wR1CZy8z3HrH4t8I9Yw0A9x2xB" target="_blank" class="inline-block bg-blue-50 text-blue-600 px-2 py-1 rounded text-xs font-semibold hover:bg-blue-100"><i class="fa-solid fa-image"></i> Ver</a>
+                    <tbody id="corpoTabela" class="divide-y divide-gray-100">
+                        <tr>
+                            <td colspan="15" class="p-6 text-center text-gray-400">
+                                <i class="fa-solid fa-spinner fa-spin mr-2"></i> A carregar vistorias...
                             </td>
                         </tr>
                     </tbody>
@@ -165,43 +97,15 @@
 
     </main>
 
-    <!-- Script de Filtro -->
+    <!-- Script de Carregamento Dinâmico e Filtros -->
     <script>
-        function filtrarTabela() {
-            const inputDate = document.getElementById('filterDate').value;
-            const inputTxt = document.getElementById('filterText').value.toLowerCase();
-            const table = document.getElementById('tabelaVistorias');
-            const tr = table.getElementsByTagName('tr');
+        async function carregarDados() {
+            const corpoTabela = document.getElementById('corpoTabela');
+            try {
+                // Busca o arquivo dados.json sem cache do navegador
+                const resposta = await fetch('dados.json?t=' + new Date().getTime());
+                const dados = await resposta.json();
 
-            for (let i = 1; i < tr.length; i++) {
-                const tdDataHora = tr[i].getElementsByTagName('td')[0];
-                const tdInspetor = tr[i].getElementsByTagName('td')[1];
-                const tdEscola = tr[i].getElementsByTagName('td')[2];
+                corpoTabela.innerHTML = '';
 
-                if (tdDataHora && tdEscola && tdInspetor) {
-                    const textoDataHora = tdDataHora.textContent || tdDataHora.innerText;
-                    const textoInspetor = tdInspetor.textContent || tdInspetor.innerText;
-                    const textoEscola = tdEscola.textContent || tdEscola.innerText;
-
-                    let matchDate = true;
-                    if (inputDate) {
-                        const partes = textoDataHora.split(' ')[0].split('/');
-                        const dataFormatadaTabela = `${partes[2]}-${partes[1]}-${partes[0]}`;
-                        matchDate = (dataFormatadaTabela === inputDate);
-                    }
-
-                    const textoCombinado = (textoEscola + " " + textoInspetor).toLowerCase();
-                    const matchText = textoCombinado.includes(inputTxt);
-
-                    if (matchDate && matchText) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
-
-</body>
-</html>
+                if (!dados || dados.length ===
