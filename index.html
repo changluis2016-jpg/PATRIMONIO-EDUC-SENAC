@@ -110,8 +110,25 @@
     </div>
 
     <script>
-        // URL base do repositório no GitHub para exibir imagens com caminho relativo (ex: img/mesas_...)
+        // URL base do repositório no GitHub para exibir imagens com caminho relativo
         const REPO_BASE_URL = "https://raw.githubusercontent.com/changluis2016-jpg/PATRIMONIO-EDUC-SENAC/main/";
+
+        // Função para formatar a data e hora para o padrão brasileiro (DD/MM/AAAA HH:MM:SS)
+        function formatarDataBrasil(dataString) {
+            if (!dataString) return "-";
+            const data = new Date(dataString);
+            if (isNaN(data.getTime())) return dataString; // Retorna o original caso venha em outro formato customizado
+
+            return data.toLocaleDateString('pt-BR', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: false // Força o formato de 24 horas (ex: 19:10 em vez de 7:10 PM)
+            });
+        }
 
         async function carregarDados() {
             const corpoTabela = document.getElementById('corpoTabela');
@@ -134,7 +151,10 @@
                 }
 
                 dados.forEach(item => {
-                    const dataHora = item.Data || item.data || '-';
+                    // Aplica a formatação de data brasileira aqui
+                    const dataBruta = item.Data || item.data || '';
+                    const dataHora = formatarDataBrasil(dataBruta);
+                    
                     const inspetor = item.Inspector || item.Inspetor || item.inspetor || '-';
                     const escola = item.Escola || item.escola || '-';
 
@@ -220,9 +240,9 @@
                 totalMesas += parseInt(item["QTD MESAS"] || 0);
                 totalCadeiras += parseInt(item["QTD CADEIRAS"] || 0);
                 totalTech += parseInt(item["QTD NOTEBOOK"] || 0) + 
-                             parseInt(item["QTD TV INTERATIVA"] || 0) + 
-                             parseInt(item["QTD OCULOS META"] || 0) + 
-                             parseInt(item["QTD PROJETOR"] || 0);
+                           parseInt(item["QTD TV INTERATIVA"] || 0) + 
+                           parseInt(item["QTD OCULOS META"] || 0) + 
+                           parseInt(item["QTD PROJETOR"] || 0);
             });
 
             document.getElementById('cardTotalVistorias').innerText = dados.length;
